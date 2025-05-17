@@ -39,6 +39,17 @@ const token = process.env.REACT_APP_GITHUB_TOKEN;
     }
   };
 
+
+fetch("https://api.github.com/users/yashKappa/repos", {
+  headers: {
+    Authorization: `token ${token}`
+  }
+})
+.then(res => res.json())
+.then(data => console.log(data))
+.catch(err => console.error(err));
+
+  
   const fetchRepos = async () => {
     try {
       const response = await fetch(userReposUrl, {
