@@ -8,7 +8,7 @@ const videos = [
     link: 'https://youtu.be/g6mzdzzqv1w',
     date: 'Feb 16, 2025',
     duration: '8:45',
-    thumbnail: '/youtube/1.jpg'
+    thumbnail: `${process.env.PUBLIC_URL}/youtube/1.jpg`
   },
   {
     id: 't1AkzNuR630',
@@ -16,7 +16,7 @@ const videos = [
     link: 'https://youtu.be/t1AkzNuR630',
     date: '14 Feb 2025',
     duration: '17:20',
-    thumbnail: '/youtube/2.jpg'
+    thumbnail: `${process.env.PUBLIC_URL}/youtube/2.jpg`
   },
   {
     id: 't1AkzNuR630',
@@ -24,7 +24,7 @@ const videos = [
     link: 'https://youtu.be/cDn_qpqegeE',
     date: '14 Nov 2024',
     duration: '03:21',
-    thumbnail: '/youtube/3.png'
+    thumbnail: `${process.env.PUBLIC_URL}/youtube/3.png`
   },
   {
     id: 't1AkzNuR630',
@@ -32,7 +32,7 @@ const videos = [
     link: 'https://youtu.be/pRXX_IU5p9w',
     date: '13 Oct 2024',
     duration: '04:26',
-    thumbnail: '/youtube/4.webp'
+    thumbnail: `${process.env.PUBLIC_URL}/youtube/4.webp`
   },
   {
     id: 't1AkzNuR630',
@@ -40,7 +40,7 @@ const videos = [
     link: 'https://youtu.be/t1AkzNuR630',
     date: '9 Oct 2024',
     duration: '04:21',
-    thumbnail: '/youtube/5.webp'
+    thumbnail: `${process.env.PUBLIC_URL}/youtube/5.webp`
   },
   {
     id: 't1AkzNuR630',
@@ -48,7 +48,7 @@ const videos = [
     link: 'https://youtu.be/_G5tRoBl2Qo',
     date: '7 Oct 2024',
     duration: '11:48',
-    thumbnail: '/youtube/6.jpg'
+    thumbnail: `${process.env.PUBLIC_URL}/youtube/6.jpg`
   },
   {
     id: 't1AkzNuR630',
@@ -56,7 +56,7 @@ const videos = [
     link: 'https://youtu.be/nml8xwNLQcU',
     date: '5 Oct 2024',
     duration: '19:55',
-    thumbnail: '/youtube/7.jpg'
+    thumbnail: `${process.env.PUBLIC_URL}/youtube/7.jpg`
   },
   {
     id: 't1AkzNuR630',
@@ -64,7 +64,7 @@ const videos = [
     link: 'https://youtu.be/tUUlHNZkduk',
     date: '22 Sept 2024',
     duration: '22:46',
-    thumbnail: '/youtube/8.jpg'
+    thumbnail: `${process.env.PUBLIC_URL}/youtube/8.jpg`
   },
   {
     id: 't1AkzNuR630',
@@ -72,7 +72,7 @@ const videos = [
     link: 'https://youtu.be/iVL5wWBu9l8',
     date: '14 Sept 2024',
     duration: '24:25',
-    thumbnail: '/youtube/9.webp'
+    thumbnail: `${process.env.PUBLIC_URL}/youtube/9.webp`
   },
   {
     id: 't1AkzNuR630',
@@ -80,7 +80,7 @@ const videos = [
     link: 'https://youtu.be/ZsquCR5da6Y',
     date: '9 Sept 2024',
     duration: '17:29',
-    thumbnail: '/youtube/10.webp'
+    thumbnail: `${process.env.PUBLIC_URL}/youtube/10.webp`
   },
   {
     id: 't1AkzNuR630',
@@ -88,7 +88,7 @@ const videos = [
     link: 'https://youtu.be/tUUlHNZkduk',
     date: '22 Sept 2024',
     duration: '22:46',
-    thumbnail: '/youtube/8.jpg'
+    thumbnail: `${process.env.PUBLIC_URL}/youtube/8.jpg`
   },
   {
     id: 't1AkzNuR630',
@@ -96,7 +96,7 @@ const videos = [
     link: 'https://youtu.be/gK4ba4mWzOM',
     date: '4 Sept 2024',
     duration: '13:55',
-    thumbnail: '/youtube/11.jpg'
+    thumbnail: `${process.env.PUBLIC_URL}/youtube/11.jpg`
   },
 ];
 
