@@ -1,0 +1,156 @@
+#Activity {
+    margin-top: 3rem;
+}
+
+#Activity h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+
+.stat-item img:hover {
+    transform: scale(1.02);
+}
+
+
+
+.followers-container {
+    margin-bottom: 2rem;
+    justify-content: center;
+    text-align: center;
+    background-color: #b65303;
+    color: rgb(255, 255, 255);
+}
+
+.followers-avatars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.follower-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    border: 2px solid #202020;
+    margin-top: 0.5rem;
+}
+
+.follower-avatar:hover {
+    transform: scale(1.1);
+}
+
+
+.stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-item {
+    flex: 1 1 300px;
+    max-width: 400px;
+}
+
+.stat-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(91, 205, 236, 0.2);
+    transition: transform 0.3s ease;
+
+}
+
+.contribution-graph {
+    flex-basis: 100%;
+    max-width: 800px;
+}
+
+.trophy-section{
+    background-color: #b65303;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.trophy{
+    width: 80%;
+    margin-top: 1rem;
+}
+
+.trophy img{
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .stat-item {
+        flex-basis: 100%;
+        max-width: 90%;
+    }
+
+    .contribution-graph {
+        max-width: 90%;
+    }
+}
+
+.recent-events {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.recent-events h3 {
+  margin-bottom: 1rem;
+  color: #d18800;
+  text-align: center;
+}
+
+.events-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.event-item {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  background-color: #1e1209; /* deep orange-brown */
+  border-left: 4px solid #ffa500; /* orange */
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.event-item:hover {
+  background-color: #3a2414; /* slightly lighter on hover */
+}
+
+.event-item p {
+  margin: 0.25rem 0;
+}
+
+.event-item strong {
+  color: #ffffff;
+}
+
+.event-item a {
+  color: #ffae42; /* lighter orange for links */
+  text-decoration: none;
+}
+
+.event-item a:hover {
+  text-decoration: underline;
+}
+
+.event-time {
+  font-size: 0.85rem;
+  color: #d1a36f; /* light orange-brown */
+}

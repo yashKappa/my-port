@@ -1,0 +1,55 @@
+.tools-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+  justify-items: center;
+}
+
+.tool-card {
+  background-color: #251d0bc0;
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  width: 150px;
+  margin-top: 1.5rem;
+  position: relative; /* make it relative for absolute positioning inside */
+}
+
+
+.tool-card:hover {
+  transform: translateY(-5px);
+}
+
+.tool-card .img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+.tool-card p {
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+}
+
+
+.shadow {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 0.5vh;
+  height: auto;
+  z-index: 0;
+  opacity: 0.9;
+}
+
