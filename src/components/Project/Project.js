@@ -39,6 +39,8 @@ const token = process.env.REACT_APP_GITHUB_TOKEN;
     }
   };
 
+  console.log("Token from env:", process.env.REACT_APP_GITHUB_TOKEN);
+
 
 fetch("https://api.github.com/users/yashKappa/repos", {
   headers: {
