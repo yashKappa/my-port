@@ -1,8 +1,5 @@
-
-
-
 /* ================= Your Main Content ================= */
-.back{
+.back {
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -10,7 +7,7 @@
 }
 
 
-.home{
+.home {
   display: flex;
   justify-content: center;
   top: 0%;
@@ -51,7 +48,7 @@
 
 
 @media (max-width: 706px) {
-  .back{
+  .back {
     display: none;
   }
 }

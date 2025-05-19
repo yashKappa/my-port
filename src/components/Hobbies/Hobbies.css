@@ -1,0 +1,40 @@
+.container{
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0%;
+    display: flex !important;
+}
+
+.container img{
+    width: 50%;
+    height: 100%;
+}
+
+#Hobbies h2{
+    padding: 4rem 0rem 1rem 0rem;
+    text-align: center;
+    color: orange;
+}
+
+#Hobbies h3{
+    text-align: center;
+    color: rgb(248, 220, 169);
+}
+
+#Hobbies strong{
+    color: orange !important;
+}
+
+#Hobbies p{
+    color: rgb(255, 224, 196);
+}
+
+#Hobbies .data{
+    padding-left: 20px;
+}
+
+@media (max-width:1000px) {
+    .container{
+        display: block !important;
+    }
+}

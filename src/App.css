@@ -4,7 +4,8 @@ html {
 
 
 /* App.css */
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
@@ -12,7 +13,7 @@ body, html {
 
 .body {
   /* background: linear-gradient(180deg, rgb(0, 0, 48), rgb(5, 5, 75), rgb(8, 8, 63), rgb(14, 14, 70), rgb(24, 24, 90), rgb(29, 29, 73)) !important; */
-  background-color:#0D0D14;
+  background-color: #0D0D14;
   min-height: 100vh;
   color: white;
   font-family: 'Segoe UI', sans-serif;
@@ -20,37 +21,42 @@ body, html {
 
 /* Navbar Customization */
 .navbar {
-  background-color: #0a192f1a; 
+  background-color: #0a192f1a;
   backdrop-filter: blur(20px);
   color: rgb(255, 255, 255);
 }
 
 .nav-link {
-  color: #ffa600 !important; /* Light Blue Text */
+  color: #ffa600 !important;
+  /* Light Blue Text */
   margin-right: 1rem;
   font-weight: 500 !important;
 }
 
 .nav-link:hover {
-  color: #b97900 !important; /* Brighter blue on hover */
+  color: #b97900 !important;
+  /* Brighter blue on hover */
 }
 
 /* Section Styling */
-#home, #tools {
+#home,
+#tools {
   padding: 60px 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .scroll-section {
-  scroll-margin-top: 80px; /* Adjust based on navbar height */
+  scroll-margin-top: 80px;
+  /* Adjust based on navbar height */
 }
 
 .nav-link.active {
-  color: #ffae00 !important; /* Bright Cyan */
+  color: #ffae00 !important;
+  /* Bright Cyan */
   border-bottom: 2px solid #ff9100;
 }
 
-.git{
+.git {
   background-color: #ffa600 !important;
   padding: 5px 10px !important;
   margin-top: 5px !important;
@@ -58,16 +64,22 @@ body, html {
   color: rgb(0, 0, 0) !important;
 }
 
-.git:hover{
+.git:hover {
   background-color: #fdfcfa !important;
   color: rgb(255, 136, 0) !important;
 }
 
 @media (max-width: 500px) {
-  body, html {
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-  overflow-x: none;
+
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: none;
+  }
 }
+
+h2 {
+  color: orange;
 }

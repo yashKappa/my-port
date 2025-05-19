@@ -104,30 +104,30 @@ const Youtube = () => {
   return (
     <section id="Youtube" className="scroll-section tools-section">
       <h2>My YouTube Videos</h2>
-     <div className='video'>
-         <div className='video-container'>
-        <div className="video-grid">
-        {videos.map((video, index) => (
-          <div className="video-card" key={index}>
-            <img
-              src={video.thumbnail}
-              alt={video.title}
-              className="thumbnail"
-            />
-            <div className="video-info">
-              <h3>
-                <a href={video.link} target="_blank" rel="noopener noreferrer">
-                  {video.title}
-                </a>
-              </h3>
-              <p><strong>Duration:</strong> {video.duration}</p>
-              <p><strong>Date:</strong> {video.date}</p>
-            </div>
+      <div className='video'>
+        <div className='video-container'>
+          <div className="video-grid">
+            {videos.map((video, index) => (
+              <div className="video-card" key={index}>
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="thumbnail"
+                />
+                <div className="video-info">
+                  <h3>
+                    <a href={video.link} target="_blank" rel="noopener noreferrer">
+                      {video.title}
+                    </a>
+                  </h3>
+                  <p><strong>Duration:</strong> {video.duration}</p>
+                  <p><strong>Date:</strong> {video.date}</p>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-      </div>
-     </div>
     </section>
   );
 };

@@ -30,7 +30,7 @@ const images = [
 
 const Tools = () => {
   return (
-    <section id="tools" className="scroll-section tools-section">
+    <section id="tools" className="tools-section">
       <h2>Tools Used</h2>
       <div className="tools-grid">
         {images.map(({ label, src }, index) => (
@@ -40,16 +40,16 @@ const Tools = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: false }} 
+            viewport={{ once: false }}
           >
             <img className='img' src={src} alt={label} />
             <p>{label}</p>
-         <img className='shadow' alt='shadow' src='shadow1.png' />
+            <img className='shadow' alt='shadow' src={`${process.env.PUBLIC_URL}/shadow1.png`} />
           </motion.div>
         ))}
       </div>
 
-      
+
     </section>
   );
 };

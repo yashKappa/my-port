@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.6",
     "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "framer-motion": "^12.10.5",
     "gh-pages": "^6.3.0",
@@ -19,6 +20,8 @@
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

@@ -4,6 +4,8 @@ import Tools from './components/tool/Tools';
 import Project from './components/Project/Project';
 import Youtube from './components/Youtube/Youtube';
 import Activity from './components/Activity/Activity';
+import Resume from './components/Resume/Resume';
+import Hobbies from './components/Hobbies/Hobbies';
 import './App.css';
 
 const App = () => {
@@ -49,17 +51,23 @@ const App = () => {
               <li className="nav-item">
                 <a className={`nav-link ${activeSection === 'tools' ? 'active' : ''}`} href="#tools">Tools</a>
               </li>
-               <li className="nav-item">
+              <li className="nav-item">
                 <a className={`nav-link ${activeSection === 'Project' ? 'active' : ''}`} href="#Project">Projects</a>
               </li>
               <li className="nav-item">
                 <a className={`nav-link ${activeSection === 'Youtube' ? 'active' : ''}`} href="#Youtube">Youtube</a>
               </li>
-                <li className="nav-item">
+              <li className="nav-item">
                 <a className={`nav-link ${activeSection === 'Activity' ? 'active' : ''}`} href="#Activity">Activity</a>
               </li>
+               <li className="nav-item">
+                <a className={`nav-link ${activeSection === 'Hobbies' ? 'active' : ''}`} href="#Hobbies">Hobbies</a>
+              </li>
               <li className="nav-item">
-                <a className='nav-link git' href="https://github.com/yashKappa"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a className={`nav-link ${activeSection === 'Resume' ? 'active' : ''}`} href="#Resume">Resume</a>
+              </li>
+              <li className="nav-item">
+                <a className='nav-link git' href="https://github.com/yashKappa"><i className="fa-brands fa-github"></i> GitHub</a>
               </li>
             </ul>
           </div>
@@ -72,6 +80,8 @@ const App = () => {
       <Project />
       <Youtube />
       <Activity />
+      <Hobbies />
+      <Resume />
     </div>
   );
 };

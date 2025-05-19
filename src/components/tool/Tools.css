@@ -19,7 +19,8 @@
   text-align: center;
   width: 150px;
   margin-top: 1.5rem;
-  position: relative; /* make it relative for absolute positioning inside */
+  position: relative;
+  /* make it relative for absolute positioning inside */
 }
 
 
@@ -53,3 +54,17 @@
   opacity: 0.9;
 }
 
+#tools h2 {
+  padding-top: 5rem;
+  color: orange;
+}
+
+@media (max-width:466px) {
+  .tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+  gap: 30px;
+  margin-top: 30px;
+  justify-items: center;
+}
+}
