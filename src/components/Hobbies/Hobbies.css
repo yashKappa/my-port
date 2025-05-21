@@ -5,6 +5,10 @@
     display: flex !important;
 }
 
+#Hobbies{
+    width: 99%;
+}
+
 .container img{
     width: 50%;
     height: 100%;
@@ -33,8 +37,35 @@
     padding-left: 20px;
 }
 
+.sketch {
+  display: block;
+  margin: 0 auto;
+  max-height: 450px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.draw {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.draw h3{
+    margin-top: 6rem !important;
+}
+
 @media (max-width:1000px) {
     .container{
         display: block !important;
     }
+
+    .container img{
+        background-color: antiquewhite !important;
+        width: 100%;
+    }
+
+    .draw h3{
+    margin-top: 2.5rem !important;
+}
+
 }

@@ -11,3 +11,14 @@
     color: orange !important;
     padding-top: 1.5rem;
 }
+
+#Resume img{
+    width: 35%;
+    border-radius: 1.3rem;
+}
+
+@media (max-width: 550px) {
+    #Resume img{
+        width: 100%;
+    }
+}

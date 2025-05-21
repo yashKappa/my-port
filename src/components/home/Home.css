@@ -1,4 +1,3 @@
-/* ================= Your Main Content ================= */
 .back {
   position: absolute;
   width: 100%;
@@ -48,7 +47,8 @@
 
 
 @media (max-width: 706px) {
-  .back {
+  #home .back {
     display: none;
   }
+
 }

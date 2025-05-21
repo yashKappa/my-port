@@ -6,10 +6,8 @@ const Project = () => {
 
   const userReposUrl = 'https://api.github.com/users/yashKappa/repos';
 
-  // Fetch README images (no token)
   const fetchReadmeImage = async (repoUrl) => {
     try {
-      // Get README.md content from the repo
       const readmeUrl = `${repoUrl}/contents/README.md`;
       const response = await fetch(readmeUrl);
 
@@ -18,14 +16,12 @@ const Project = () => {
       const data = await response.json();
       const content = atob(data.content);
 
-      // Regex to find image markdown: ![alt](url)
       const regex = /!\[.*?\]\((.*?)\)/g;
       const matches = [...content.matchAll(regex)];
 
       if (matches.length > 0) {
         return matches.map(match => {
           const imageUrl = match[1];
-          // If absolute URL, return as is, else build raw URL for GitHub
           return imageUrl.startsWith('http')
             ? imageUrl
             : `${repoUrl.replace('api.github.com/repos', 'raw.githubusercontent.com')}/main/${imageUrl}`;
@@ -39,7 +35,6 @@ const Project = () => {
     }
   };
 
-  // Fetch repos without token
   const fetchRepos = async () => {
     try {
       const response = await fetch(userReposUrl);

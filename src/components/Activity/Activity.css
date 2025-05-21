@@ -102,6 +102,11 @@
   .contribution-graph {
     max-width: 90%;
   }
+
+.trophy-section{
+  max-width: 100%;
+  margin-top: 1rem;
+}
 }
 
 .recent-events {

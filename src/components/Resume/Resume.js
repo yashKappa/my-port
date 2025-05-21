@@ -11,7 +11,7 @@ const Resume = () => {
         alt='resume'
         src={resumeUrl}
         className="img-fluid mb-3"
-        style={{ maxWidth: '40%', height: 'auto' }}
+        
       />
       <br />
       <a

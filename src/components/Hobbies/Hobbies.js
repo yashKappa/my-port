@@ -58,7 +58,7 @@ const Hobbies = () => {
   };
 
   return (
-    <section id='Hobbies' className='p-4'>
+    <section id="Hobbies" className='p-4'>
       <h2 className='font-bold mb-4'>Hobbies</h2>
       <h3 className='font-bold mb-4'>Watching Anime</h3>
       <Slider {...settings}>
@@ -81,6 +81,19 @@ const Hobbies = () => {
           </div>
         ))}
       </Slider>
+
+       <div className='draw'>
+              <h3 className='font-bold mb-4 mt-5 mb-5'>Drawing Sketches</h3>
+             <div>
+      <Slider {...settings}>
+        <img className='sketch' alt='sketch' src={`${process.env.PUBLIC_URL}/sketch/1.png`}  />
+       <img className='sketch' alt='sketch' src={`${process.env.PUBLIC_URL}/sketch/2.png`}  />
+       <img className='sketch' alt='sketch' src={`${process.env.PUBLIC_URL}/sketch/3.png`}  />
+       <img className='sketch' alt='sketch' src={`${process.env.PUBLIC_URL}/sketch/4.png`}  />
+      </Slider>
+             </div>
+             </div>
+
     </section>
   );
 };

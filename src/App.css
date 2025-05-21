@@ -2,24 +2,21 @@ html {
   scroll-behavior: smooth;
 }
 
-
-/* App.css */
 body,
 html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  overflow-x: none;
 }
 
 .body {
-  /* background: linear-gradient(180deg, rgb(0, 0, 48), rgb(5, 5, 75), rgb(8, 8, 63), rgb(14, 14, 70), rgb(24, 24, 90), rgb(29, 29, 73)) !important; */
   background-color: #0D0D14;
   min-height: 100vh;
   color: white;
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Navbar Customization */
 .navbar {
   background-color: #0a192f1a;
   backdrop-filter: blur(20px);
@@ -31,14 +28,13 @@ html {
   /* Light Blue Text */
   margin-right: 1rem;
   font-weight: 500 !important;
+  transition: color 0.89s ease, border-bottom 0.3s ease;
 }
 
 .nav-link:hover {
   color: #b97900 !important;
-  /* Brighter blue on hover */
 }
 
-/* Section Styling */
 #home,
 #tools {
   padding: 60px 20px;
@@ -47,12 +43,10 @@ html {
 
 .scroll-section {
   scroll-margin-top: 80px;
-  /* Adjust based on navbar height */
 }
 
 .nav-link.active {
   color: #ffae00 !important;
-  /* Bright Cyan */
   border-bottom: 2px solid #ff9100;
 }
 
@@ -69,17 +63,102 @@ html {
   color: rgb(255, 136, 0) !important;
 }
 
-@media (max-width: 500px) {
+.navbar-toggler i {
+  color: #ffa600;
+  font-size: x-large;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+@media (max-width: 989px) {
 
   body,
   html {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    overflow-x: none;
+    overflow-x: hidden;
+  }
+
+  #navbarNav {
+    display: none !important;
+  }
+
+  .custom-sidebar {
+    display: block !important;
+  }
+
+  .navbar {
+    position: fixed !important;
+    width: 100%;
   }
 }
 
+@media (max-width: 307px) {
+  .custom-sidebar {
+    width: 90%;
+    right: -90%;
+  }
+
+  .custom-sidebar.open {
+    right: 0;
+  }
+}
+
+
 h2 {
   color: orange;
+}
+
+.custom-sidebar {
+  position: fixed;
+  top: 0;
+  right: -50%;
+  width: 50%;
+  min-height: 100vh;
+  background-color: #140c03;
+  color: white;
+  z-index: 999;
+  padding: 2rem 1rem;
+  transition: right 0.3s ease-in-out;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.5);
+  border-radius: 1.5rem 0rem 0rem 1.5rem;
+  display: none;
+}
+
+.custom-sidebar.open {
+  right: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 3rem;
+}
+
+.sidebar-links li {
+  margin: 1rem 0;
+}
+
+.sidebar-links a {
+  color: #ffa600;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.sidebar-links a:hover {
+  color: #fff;
 }

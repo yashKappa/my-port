@@ -27,22 +27,6 @@ const Home = () => {
           />
         </div>
       </div>
-
-      <div className="shape circle" />
-      <div className="shape square" />
-      <div className="shape triangle" />
-      <div className="shape rectangle" />
-      <div className="shape blob" />
-      <div className="shape diamond" />
-      <div className="shape hexagon" />
-      <div className="shape zigzag" />
-      <div className="shape wave" />
-      <div className="shape star" />
-      <div className="shape ring" />
-      <div className="shape parallelogram" />
-      <div className="shape circle center-circle" />
-      <div className="shape hexagon center-hexagon" />
-      <div className="shape star center-star" />
     </section>
   );
 };
