@@ -64,7 +64,9 @@ const App = () => {
       {/* Bootstrap Navbar */}
       <nav className="navbar navbar-expand-lg sticky-top">
         <div className="container-fluid">
-          <a className="navbar-brand text-white" href="#home">My Portfolio</a>
+          <a className="navbar-brand text-white" href="#home">
+            <img className='log' alt='logo' src={`${process.env.PUBLIC_URL}/log.ico`} />
+            <span>ash.Port</span></a>
           <button className="navbar-toggler" type="button" onClick={() => setSidebarOpen(true)}>
             <i class="fa-solid fa-bars"></i>
           </button>

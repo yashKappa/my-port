@@ -35,6 +35,24 @@ html {
   color: #b97900 !important;
 }
 
+.log{
+  width: 30%;
+  padding: 0%;
+  margin: 0%;
+}
+
+.navbar-brand{
+  padding: 0%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: end;
+}
+
+.navbar-brand span{
+  margin-left: -0.5rem;
+}
+
 #home,
 #tools {
   padding: 60px 20px;
