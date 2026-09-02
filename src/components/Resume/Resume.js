@@ -2,7 +2,7 @@ import React from 'react';
 import './Resume.css';
 
 const Resume = () => {
-  const resumeUrl = `${process.env.PUBLIC_URL}/Resume.png`;
+  const resumeUrl = `${process.env.PUBLIC_URL}/Yash Saundalkar CV.jpg`;
 
   return (
     <section id='Resume' className="scroll-section text-center p-4">
