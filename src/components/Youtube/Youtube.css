@@ -1,71 +1,327 @@
-.video-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4rem;
-    padding: 1rem;
-    justify-content: center;
+/* ==========================================
+   NEUMORPHIC YOUTUBE SECTION
+   ========================================== */
+
+.neu-youtube-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--neu-bg);
+  color: var(--neu-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px 60px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.video-card {
-    background: #bd6b00;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 300px;
-    transition: transform 0.2s ease;
+.neu-youtube-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
 }
 
-.video-card:hover {
-    transform: translateY(-5px);
+/* Header Section */
+.neu-youtube-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.thumbnail {
-    width: 100%;
-    height: auto;
-    display: block;
+.neu-icon-red {
+  color: #ff0000;
 }
 
-.video-info {
-    padding: 10px;
+.neu-pulse-dot.red {
+  background-color: #ff0000;
+  box-shadow: 0 0 8px #ff0000;
 }
 
-.video-info h3 {
-    font-size: 16px;
-    margin: 0 0 5px;
+.neu-youtube-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--neu-text-heading);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+  transition: color 0.4s ease;
 }
 
-.video-info p {
-    color: rgb(255, 253, 253);
+.neu-youtube-subtitle {
+  font-size: 1.05rem;
+  color: var(--neu-text-muted);
+  max-width: 620px;
+  margin: 0;
+  transition: color 0.4s ease;
 }
 
-.video-info a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-weight: bold;
+/* Video Grid */
+/* ==========================================
+   FIXED-HEIGHT SCROLLABLE GRID CONTAINER
+   ========================================== */
+
+.neu-youtube-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+  width: 100%;
+  
+  /* Constrain height and enable internal scrolling */
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 12px 16px;
+  border-radius: 24px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-inset); /* Soft embedded container effect */
+  box-sizing: border-box;
 }
 
-.video-container {
-    display: flex;
-    flex-wrap: wrap;
-    height: 70vh;
-    overflow-y: auto;
-    justify-content: center;
-    gap: 25px;
-    width: 90%;
-    margin-bottom: 0rem;
-    margin-top: 3rem;
-    box-shadow: inset 0px 0px 10px rgb(0, 0, 0);
-    padding: 20px 0px 20px 0px;
-    border: 1px solid orange;
-    border-radius: 0.3rem;
-    background-color: #bd6b0018;
+/* Custom Neumorphic Scrollbar */
+.neu-youtube-grid::-webkit-scrollbar {
+  width: 8px;
 }
 
-.video {
-    display: flex;
-    justify-content: center;
+.neu-youtube-grid::-webkit-scrollbar-track {
+  background: var(--neu-bg);
+  border-radius: 10px;
+  margin: 12px 0;
 }
 
-#Youtube h2 {
-    color: orange;
+.neu-youtube-grid::-webkit-scrollbar-thumb {
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  border-radius: 10px;
+}
+
+.neu-youtube-grid::-webkit-scrollbar-thumb:hover {
+  box-shadow: var(--neu-shadow-hover);
+}
+
+/* Video Card */
+.neu-video-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  padding: 18px;
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out, background-color 0.4s ease;
+}
+
+.neu-video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--neu-shadow-hover);
+}
+
+/* Thumbnail Box */
+.neu-video-thumbnail-box {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 16px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-inset);
+  overflow: hidden;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.neu-video-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.neu-video-card:hover .neu-video-img {
+  transform: scale(1.05);
+}
+
+/* Play Overlay on Hover */
+.neu-play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.neu-video-thumbnail-box:hover .neu-play-overlay {
+  opacity: 1;
+}
+
+.neu-play-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ff0000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+  transform: scale(0.8);
+  transition: transform 0.25s ease;
+}
+
+.neu-video-thumbnail-box:hover .neu-play-btn {
+  transform: scale(1);
+}
+
+/* Duration Tag */
+.neu-duration-tag {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Video Body Content */
+.neu-video-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.neu-video-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 2.8em;
+}
+
+.neu-video-card-title a {
+  color: var(--neu-text-heading);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.neu-video-card-title a:hover {
+  color: var(--accent-cyan);
+}
+
+.neu-video-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+  margin-top: auto;
+}
+
+.neu-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--neu-text-muted);
+  font-family: 'Fira Code', monospace;
+}
+
+/* Watch Button */
+.neu-btn-red {
+  background: var(--neu-bg);
+  color: #ff0000;
+  box-shadow: var(--neu-shadow-small);
+  border: 1px solid rgba(255, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.25s ease;
+}
+
+.neu-btn-red:hover {
+  background: #ff0000;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(255, 0, 0, 0.35);
+  border-color: transparent;
+}
+
+/* Load More Controls Wrapper */
+.neu-load-more-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  width: 100%;
+}
+
+.neu-btn-load {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent-cyan);
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.neu-btn-load:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--neu-shadow-hover);
+  color: var(--neu-text-heading);
+}
+
+.neu-btn-load:active {
+  transform: translateY(0);
+  box-shadow: var(--neu-shadow-inset);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+  .neu-youtube-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .neu-video-thumbnail-box {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .neu-youtube-grid {
+    grid-template-columns: 1fr;
+  }
 }

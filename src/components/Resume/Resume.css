@@ -1,24 +1,159 @@
-.btn {
-    background-color: rgb(243, 158, 0) !important;
+/* ==========================================
+   NEUMORPHIC RESUME SECTION (THEME ADAPTIVE)
+   ========================================== */
+
+.neu-resume-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-color, #181824);
+  color: var(--text-color, #f0f2f5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px 60px 24px;
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.btn:hover {
-    background-color: rgb(196, 128, 2) !important;
+.neu-resume-container {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
-#Resume h2 {
-    margin: 0rem 0rem 2rem 0rem !important;
-    color: orange !important;
-    padding-top: 1.5rem;
+/* Header */
+.neu-resume-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-#Resume img{
-    width: 35%;
-    border-radius: 1.3rem;
+.neu-resume-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--neu-text-heading);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+  transition: color 0.4s ease;
 }
 
-@media (max-width: 550px) {
-    #Resume img{
-        width: 100%;
-    }
+.neu-resume-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary, #a0a7b5);
+  max-width: 600px;
+  margin: 0;
+}
+
+/* Resume Main Card */
+.neu-resume-card {
+  background: var(--bg-color, #181824);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 8px 8px 16px var(--shadow-dark, #07070b), 
+             -8px -8px 16px var(--shadow-light, #272936a4);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Action Buttons */
+.neu-resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.neu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+/* Primary Download Button */
+.neu-btn-primary {
+  background: var(--accent-color, #ffb703);
+  color: var(--bg-color, #181824);
+  box-shadow: 4px 4px 10px var(--shadow-dark, #07070b), 
+             -4px -4px 10px var(--shadow-light, #272936a4);
+}
+
+.neu-btn-primary:hover {
+  transform: translateY(-2px);
+  background: var(--accent-hover, #ffc83b);
+  box-shadow: 6px 6px 14px var(--shadow-dark, #07070b), 
+             -6px -6px 14px var(--shadow-light, #272936a4);
+}
+
+/* Outline/Secondary Button */
+.neu-btn-outline {
+  background: var(--bg-color, #181824);
+  color: var(--text-color, #f0f2f5);
+  box-shadow: 4px 4px 8px var(--shadow-dark, #07070b), 
+             -4px -4px 8px var(--shadow-light, #272936a4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.neu-btn-outline:hover {
+  transform: translateY(-2px);
+  color: var(--accent-color, #ffb703);
+  box-shadow: inset 3px 3px 6px var(--shadow-dark, #07070b), 
+              inset -3px -3px 6px var(--shadow-light, #272936a4);
+}
+
+/* Inset Frame & Image Preview */
+.neu-resume-frame {
+  position: relative;
+  border-radius: 16px;
+  background: var(--bg-color, #181824);
+  padding: 12px;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark, #07070b), 
+              inset -4px -4px 8px var(--shadow-light, #272936a4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.neu-resume-img {
+  width: 100%;
+  max-width: 750px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 2px 2px 8px var(--shadow-dark, #07070b);
+}
+
+/* Light Theme Overrides */
+.light-theme .neu-btn-outline {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+  .neu-resume-card {
+    padding: 18px;
+  }
+  
+  .neu-resume-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .neu-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }

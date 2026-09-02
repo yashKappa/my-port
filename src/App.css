@@ -6,177 +6,317 @@ body,
 html {
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
-  overflow-x: none;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Neumorphism Theme Variables
+   ========================================================================== */
+.dark-theme {
+  --bg-color: #181824;
+  --text-color: #f0f2f5;
+  --text-secondary: #a0a7b5;
+  --accent-color: #ffb703;
+  --accent-hover: #ffc83b;
+  --shadow-dark: #07070b;
+  --shadow-light: #272936a4;
+  --inset-shadow-dark: rgba(0, 0, 0, 0.9);
+  --inset-shadow-light: rgba(255, 255, 255, 0.08);
+}
+
+.light-theme {
+  --bg-color: #e6e9ef;
+  --text-color: #2d3748;
+  --text-secondary: #4a5568;
+  --accent-color: #a15804;
+  --accent-hover: #b45309;
+  --shadow-dark: #b8bec9;
+  --shadow-light: #ffffff;
+  --inset-shadow-dark: rgba(163, 177, 198, 0.6);
+  --inset-shadow-light: rgba(255, 255, 255, 0.8);
 }
 
 .body {
-  background-color: #0D0D14;
+  background-color: var(--bg-color);
   min-height: 100vh;
-  color: white;
+  color: var(--text-color);
   font-family: 'Segoe UI', sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  /* 📌 FIX: Add top padding so top section (Home) doesn't get covered by the fixed navbar */
+  padding-top: 75px; 
 }
 
-.navbar {
-  background-color: #0a192f1a;
-  backdrop-filter: blur(20px);
-  color: rgb(255, 255, 255);
+/* ==========================================================================
+   Header & Fixed Navbar
+   ========================================================================== */
+.neu-navbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--bg-color) !important;
+  box-shadow: 6px 6px 14px var(--shadow-dark), -6px -6px 14px var(--shadow-light);
+  padding: 0.8rem 1.5rem;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-.nav-link {
-  color: #ffa600 !important;
-  /* Light Blue Text */
-  margin-right: 1rem;
-  font-weight: 500 !important;
-  transition: color 0.89s ease, border-bottom 0.3s ease;
+.log {
+  width: 38px;
+  height: 38px;
 }
 
-.nav-link:hover {
-  color: #b97900 !important;
-}
-
-.log{
-  width: 30%;
-  padding: 0%;
-  margin: 0%;
-}
-
-.navbar-brand{
-  padding: 0%;
+.navbar-brand {
+  padding: 0;
   display: flex;
-  text-align: center;
+  align-items: center;
+  color: var(--text-color) !important;
+  font-weight: 700;
+}
+
+.navbar-brand span {
+  color: var(--accent-color);
+}
+
+/* Neumorphic Nav Links */
+.neu-nav-link {
+  color: var(--text-color) !important;
+  margin: 0 0.4rem;
+  padding: 0.5rem 1rem !important;
+  font-weight: 600 !important;
+  border-radius: 12px;
+  background: var(--bg-color);
+  box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+  transition: all 0.25s ease;
+
+}
+
+.nav-link b{
+  font-weight: 700;
+}
+
+.neu-nav-link:hover {
+  color: var(--accent-color) !important;
+  box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+}
+
+.neu-nav-link.active {
+  color: var(--accent-color) !important;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  border-bottom: none !important;
+}
+
+.dark-theme .neu-nav-link.active {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+              inset -4px -4px 8px var(--shadow-light),
+              0 0 10px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgb(36, 36, 36);
+}
+
+/* Neumorphic GitHub Button */
+.neu-git-btn {
+  background: var(--bg-color) !important;
+  color: var(--accent-color) !important;
+  border-radius: 12px;
+  padding: 0.5rem 1.2rem !important;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+  transition: all 0.25s ease;
+}
+
+.neu-git-btn:hover {
+  box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+  color: var(--accent-hover) !important;
+}
+
+/* ==========================================================================
+   Universal Circular Icon Buttons
+   ========================================================================== */
+.neu-btn-icon,
+.navbar-toggler.neu-btn-icon,
+.close-btn.neu-btn-icon {
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  background: var(--bg-color) !important;
+  color: var(--accent-color) !important;
+  width: 44px;
+  height: 44px;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: end;
+  box-shadow: 4px 4px 10px var(--shadow-dark), -4px -4px 10px var(--shadow-light) !important;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 1.1rem;
 }
 
-.navbar-brand span{
-  margin-left: -0.5rem;
+.neu-btn-icon i,
+.navbar-toggler.neu-btn-icon i,
+.close-btn.neu-btn-icon i {
+  color: var(--accent-color) !important;
+  font-size: 1.1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-#home,
-#tools {
-  padding: 60px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.dark-theme .neu-btn-icon,
+.dark-theme .navbar-toggler.neu-btn-icon,
+.dark-theme .close-btn.neu-btn-icon {
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: linear-gradient(145deg, #1a1a28, #151520) !important;
+  box-shadow: 5px 5px 12px #07070b, -5px -5px 12px rgba(39, 41, 54, 0.64) !important;
 }
 
-.scroll-section {
-  scroll-margin-top: 80px;
+.dark-theme .neu-btn-icon i,
+.dark-theme .navbar-toggler.neu-btn-icon i,
+.dark-theme .close-btn.neu-btn-icon i {
+  color: #ffb703 !important;
+  filter: drop-shadow(0 0 5px rgba(255, 183, 3, 0.6));
 }
 
-.nav-link.active {
-  color: #ffae00 !important;
-  border-bottom: 2px solid #ff9100;
+.neu-btn-icon:hover i,
+.navbar-toggler.neu-btn-icon:hover i,
+.close-btn.neu-btn-icon:hover i {
+  color: var(--accent-hover) !important;
+  transform: scale(1.1);
 }
 
-.git {
-  background-color: #ffa600 !important;
-  padding: 5px 10px !important;
-  margin-top: 5px !important;
-  border-radius: 0.3rem;
-  color: rgb(0, 0, 0) !important;
+.neu-btn-icon:active,
+.navbar-toggler.neu-btn-icon:active,
+.close-btn.neu-btn-icon:active {
+  box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light) !important;
 }
 
-.git:hover {
-  background-color: #fdfcfa !important;
-  color: rgb(255, 136, 0) !important;
+.neu-theme-btn:hover i {
+  transform: rotate(20deg) scale(1.1);
 }
 
-.navbar-toggler i {
-  color: #ffa600;
-  font-size: x-large;
-}
-
-.navbar-toggler:focus {
-  box-shadow: none !important;
-}
-
-@media (max-width: 989px) {
-
-  body,
-  html {
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-  }
-
-  #navbarNav {
-    display: none !important;
-  }
-
-  .custom-sidebar {
-    display: block !important;
-  }
-
-  .navbar {
-    position: fixed !important;
-    width: 100%;
-  }
-}
-
-@media (max-width: 307px) {
-  .custom-sidebar {
-    width: 90%;
-    right: -90%;
-  }
-
-  .custom-sidebar.open {
-    right: 0;
-  }
-}
-
-
-h2 {
-  color: orange;
-}
-
-.custom-sidebar {
+/* ==========================================================================
+   Neumorphic Sidebar
+   ========================================================================== */
+.neu-sidebar {
   position: fixed;
   top: 0;
-  right: -50%;
-  width: 50%;
-  min-height: 100vh;
-  background-color: #140c03;
-  color: white;
-  z-index: 999;
-  padding: 2rem 1rem;
-  transition: right 0.3s ease-in-out;
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.5);
+  right: -80%;
+  width: 75%;
+  max-width: 320px;
+  height: 100vh;
+  max-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  z-index: 1050; /* Higher than fixed navbar so it overlays properly */
+  padding: 1.5rem 1.2rem;
+  transition: right 0.35s ease-in-out, background-color 0.4s ease;
+  box-shadow: -8px 0 20px var(--shadow-dark);
   border-radius: 1.5rem 0rem 0rem 1.5rem;
   display: none;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
-.custom-sidebar.open {
+.neu-sidebar.open {
   right: 0;
 }
 
 .close-btn {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: white;
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  cursor: pointer;
+  top: 1.2rem;
+  right: 1.2rem;
 }
 
 .sidebar-links {
   list-style: none;
   padding: 0;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .sidebar-links li {
-  margin: 1rem 0;
+  margin: 0.75rem 0;
 }
 
 .sidebar-links a {
-  color: #ffa600;
-  text-decoration: none;
-  font-size: 1.2rem;
+  display: block;
+  text-align: center;
 }
 
-.sidebar-links a:hover {
-  color: #fff;
+.neu-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.neu-sidebar::-webkit-scrollbar-thumb {
+  background: var(--shadow-dark);
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Section & Scroll-Margin Adjustments
+   ========================================================================== */
+.scroll-section,
+section {
+  /* 📌 FIX: Sets exact offset so smooth-scrolling anchors stop right below fixed navbar */
+  scroll-margin-top: 85px; 
+}
+
+#home,
+#tools {
+  padding: 40px 20px;
+  border-bottom: 1px solid var(--shadow-dark);
+}
+
+h2 {
+  color: var(--accent-color);
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 989px) {
+  #navbarNav {
+    display: none !important;
+  }
+
+  .neu-sidebar {
+    display: block !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .neu-sidebar {
+    width: 85%;
+  }
+
+  .body {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 380px) {
+  .neu-sidebar {
+    width: 75%;
+  }
+
+  .body {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 1210px) {
+  .nav-link .emoji {
+    display: none;
+  }
+}
+
+@media (max-width: 1030px) {
+  .nav-link .emoji {
+    display: block;
+  }
+
+  .nav-link b {
+    display: none;
+  }
+
 }

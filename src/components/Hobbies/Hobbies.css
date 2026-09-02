@@ -1,71 +1,263 @@
-.container{
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 0%;
-    display: flex !important;
+/* ===================================================
+   CRITICAL SLICK CAROUSEL DISPLAY FIXES
+   =================================================== */
+
+/* Prevent Slick slider height collapse */
+.neu-slider-wrapper {
+  width: 100%;
+  position: relative;
+  min-height: 250px;
+  margin-top: 16px;
 }
 
-#Hobbies{
-    width: 99%;
+.slick-slider {
+  width: 100% !important;
+  display: block !important;
+  position: relative;
+  box-sizing: border-box;
 }
 
-.container img{
-    width: 50%;
-    height: 100%;
+.slick-list {
+  display: block !important;
+  position: relative;
+  width: 100%;
+  overflow: hidden !important;
+  margin: 0;
+  padding: 10px 0 35px 0 !important;
 }
 
-#Hobbies h2{
-    padding: 4rem 0rem 1rem 0rem;
-    text-align: center;
-    color: orange;
+.slick-track {
+  display: flex !important;
+  align-items: stretch !important;
 }
 
-#Hobbies h3{
-    text-align: center;
-    color: rgb(248, 220, 169);
+.slick-slide {
+  height: auto !important;
+  outline: none;
 }
 
-#Hobbies strong{
-    color: orange !important;
+.slick-slide > div {
+  height: 100%;
+  width: 100%;
 }
 
-#Hobbies p{
-    color: rgb(255, 224, 196);
+/* ===================================================
+   BASE SECTION & THEME MAPPING
+   =================================================== */
+
+.neu-hobbies-section {
+  width: 100%;
+  background-color: var(--bg-color, #181824);
+  color: var(--text-color, #f0f2f5);
+  padding: 60px 24px;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-#Hobbies .data{
-    padding-left: 20px;
-}
-
-.sketch {
-  display: block;
+.neu-hobbies-container {
+  max-width: 1100px;
   margin: 0 auto;
-  max-height: 450px;
-  object-fit: contain;
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
-.draw {
-  margin-top: 2rem;
+.neu-hobbies-header {
   text-align: center;
 }
 
-.draw h3{
-    margin-top: 6rem !important;
+.neu-hobbies-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--neu-text-heading);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+  transition: color 0.4s ease;
 }
 
-@media (max-width:1000px) {
-    .container{
-        display: block !important;
-    }
-
-    .container img{
-        background-color: antiquewhite !important;
-        width: 100%;
-    }
-
-    .draw h3{
-    margin-top: 2.5rem !important;
+.neu-hobbies-subtitle {
+  color: var(--text-secondary, #a0a7b5);
+  font-size: 1rem;
 }
 
+/* ===================================================
+   NEUMORPHIC CARD STYLING (DARK & LIGHT)
+   =================================================== */
+
+.neu-hobbies-card {
+  background: var(--bg-color, #181824);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 8px 8px 16px var(--shadow-dark, #07070b), 
+             -8px -8px 16px var(--shadow-light, #272936a4);
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.neu-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-color, #f0f2f5);
+  margin-bottom: 12px;
+}
+
+/* ===================================================
+   ANIME SLIDE INTERNAL GRID
+   =================================================== */
+
+.neu-anime-slide-wrapper {
+  padding: 0 8px;
+}
+
+.neu-anime-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.neu-poster-frame {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-color, #181824);
+  box-shadow: inset 4px 4px 8px var(--shadow-dark, #07070b), 
+              inset -4px -4px 8px var(--shadow-light, #272936a4);
+}
+
+.neu-poster-img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+}
+
+.neu-rating-chip {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #ffd700;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.neu-anime-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.neu-anime-name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-color, #f0f2f5);
+  margin: 0;
+}
+
+/* Inset Neumorphic Box for Description */
+.neu-anime-about {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #a0a7b5);
+  background: var(--bg-color, #181824);
+  padding: 16px;
+  border-radius: 12px;
+  margin: 0;
+  box-shadow: inset 3px 3px 6px var(--shadow-dark, #07070b), 
+              inset -3px -3px 6px var(--shadow-light, #272936a4);
+}
+
+.neu-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+/* Raised Neumorphic Cards for Meta Items */
+.neu-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-color, #181824);
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px var(--shadow-dark, #07070b), 
+             -3px -3px 6px var(--shadow-light, #272936a4);
+}
+
+.neu-meta-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--accent-color, #ffb703);
+  font-weight: 700;
+}
+
+.neu-meta-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-color, #f0f2f5);
+}
+
+/* ===================================================
+   SKETCHES SLIDER
+   =================================================== */
+
+.neu-sketch-slide-wrapper {
+  padding: 0 10px;
+}
+
+.neu-sketch-frame {
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-color, #181824);
+  box-shadow: 4px 4px 8px var(--shadow-dark, #07070b), 
+             -4px -4px 8px var(--shadow-light, #272936a4);
+  padding: 8px;
+}
+
+.neu-sketch-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+/* ===================================================
+   THEME-ADAPTIVE SLICK DOTS
+   =================================================== */
+
+.slick-dots li button:before {
+  color: var(--text-secondary, #a0a7b5) !important;
+  font-size: 10px !important;
+  opacity: 0.5;
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--accent-color, #ffb703) !important;
+  opacity: 1;
+}
+
+/* ===================================================
+   RESPONSIVE ADJUSTMENTS
+   =================================================== */
+
+@media (max-width: 768px) {
+  .neu-anime-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .neu-poster-img {
+    height: 280px;
+  }
 }

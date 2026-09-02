@@ -1,69 +1,206 @@
-.tools-section {
-  padding: 40px 20px;
-  text-align: center;
-}
+/* ==========================================
+   NEUMORPHIC TOOLS SECTION
+   ========================================== */
 
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
-  justify-items: center;
-}
-
-.tool-card {
-  background-color: #251d0bc0;
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-radius: 20px;
-  text-align: center;
-  width: 150px;
-  margin-top: 1.5rem;
+.neu-tools-section {
   position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--neu-bg);
+  color: var(--neu-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px 60px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-
-.tool-card:hover {
-  transform: translateY(-5px);
+.neu-tools-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
-.tool-card .img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
-  object-fit: contain;
+/* ==========================================
+   HEADER & STATS
+   ========================================== */
+
+.neu-tools-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.tool-card p {
-  color: #fff;
-  font-size: 14px;
-  margin: 0;
+.neu-tools-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--neu-text-heading);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+  transition: color 0.4s ease;
 }
 
-
-.shadow {
-  position: absolute;
-  bottom: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 0.5vh;
-  height: auto;
-  z-index: 0;
-  opacity: 0.9;
+.neu-tools-subtitle {
+  font-size: 1.05rem;
+  color: var(--neu-text-muted);
+  max-width: 600px;
+  margin: 0 0 28px 0;
+  transition: color 0.4s ease;
 }
 
-#tools h2 {
-  padding-top: 5rem;
-  color: orange;
+/* Quick Stat Pills Header */
+.neu-tools-stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-@media (max-width:466px) {
-  .tools-grid {
+.neu-stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px 8px 10px;
+  border-radius: 50px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--neu-text-heading);
+  transition: all 0.4s ease;
+}
+
+/* ==========================================
+   TOOLS NEUMORPHIC GRID & CARDS
+   ========================================== */
+
+.neu-tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
-  gap: 30px;
-  margin-top: 30px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  width: 100%;
 }
+
+.neu-tool-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 20px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out, background-color 0.4s ease;
+  cursor: default;
+}
+
+.neu-tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--neu-shadow-hover);
+}
+
+/* Inset Soft Icon Container */
+.neu-tool-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-inset);
+  flex-shrink: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+}
+
+.neu-tool-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+/* Tool Metadata Text */
+.neu-tool-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.neu-tool-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--neu-text-heading);
+  margin: 0;
+  transition: color 0.4s ease;
+}
+
+.neu-tool-category {
+  font-size: 0.78rem;
+  font-family: 'Fira Code', monospace;
+  color: var(--neu-text-muted);
+  font-weight: 500;
+  transition: color 0.4s ease;
+}
+
+.neu-tool-sparkle {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  color: var(--accent-cyan);
+  opacity: 0.3;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.neu-tool-card:hover .neu-tool-sparkle {
+  opacity: 1;
+  transform: rotate(15deg) scale(1.1);
+  color: var(--accent-amber);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+  .neu-tools-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 2fr));
+    gap: 16px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .neu-tool-card {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .neu-tool-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .neu-tools-grid {
+    grid-template-columns: 2fr;
+  }
+
+  .neu-tools-stats {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .neu-stat-pill {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }

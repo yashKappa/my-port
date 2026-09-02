@@ -1,162 +1,431 @@
-.Project {
-  display: flex;
-  justify-content: center;
-}
+/* ==========================================
+   NEUMORPHIC PROJECT SECTION
+   ========================================== */
 
-#Project h2 {
-  width: 100%;
-  color: orange;
-}
-
-.repo-container {
-  display: flex;
-  flex-wrap: wrap;
-  height: 70vh;
-  overflow-y: auto;
-  justify-content: center;
-  gap: 25px;
-  width: 90%;
-  margin-bottom: 0rem;
-  margin-top: 3rem;
-  box-shadow: inset 0px 0px 10px rgb(0, 0, 0);
-  padding: 20px 0px 20px 0px;
-  border: 1px solid orange;
-  border-radius: 0.3rem;
-  background-color: #bd6b0018;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-.repo-card {
-  width: 45%;
-  height: 250px;
+.neu-project-section {
   position: relative;
-  overflow: hidden;
-  border-radius: 0.3rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  background: #fff;
-  cursor: pointer;
-}
-
-.card-inner {
-  position: relative;
+  min-height: 100vh;
   width: 100%;
-  height: 100%;
-}
-
-/* Front image panel */
-.card-front {
-  width: 100%;
-  height: 100%;
+  background-color: var(--neu-bg);
+  color: var(--neu-text);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: filter 0.4s ease;
+  padding: 80px 24px 60px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Dim front image on hover */
-.repo-card:hover .card-front {
-  filter: brightness(0.7);
-}
-
-.card-back {
-  position: absolute;
-  bottom: -100%;
-  left: 0;
+.neu-project-container {
+  max-width: 1200px;
   width: 100%;
-  height: 100%;
-  background-color: #e29505;
-  padding: 15px;
-  font-size: 14px;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 8px;
-  box-sizing: border-box;
-  transition: bottom 0.4s ease;
-  /* smooth slide-up */
-  color: #000000;
-  font-weight: 600;
-  border-radius: 0 0 0.3rem 0.3rem;
-  scroll-behavior: smooth;
+  gap: 44px;
 }
 
-/* Slide details panel up on hover */
-.repo-card:hover .card-back {
-  bottom: 0;
-}
-
-.card-back h3 {
-  margin-top: 8rem;
-}
-
-.card-back a {
-  color: #0026ff;
-  text-decoration: none;
-  text-decoration: underline;
-}
-
-.card-back a:hover {
-  text-decoration: underline;
-}
-
-.no-image {
-  color: #000000;
-  font-size: 16px;
+/* Header Section */
+.neu-project-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: 20px;
 }
 
-
-.refresh-button:disabled {
-  background-color: #888;
-  cursor: not-allowed;
+.neu-project-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--neu-text-heading);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+  transition: color 0.4s ease;
 }
 
-.repo-image {
+.neu-project-subtitle {
+  font-size: 1.05rem;
+  color: var(--neu-text-muted);
+  max-width: 620px;
+  margin: 0;
+  transition: color 0.4s ease;
+}
+
+/* Loading State */
+.neu-loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 60px 0;
+  color: var(--neu-text-muted);
+  font-family: 'Fira Code', monospace;
+}
+
+.neu-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--neu-bg);
+  border-top: 3px solid var(--accent-cyan);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  box-shadow: var(--neu-shadow-small);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   PROJECT CARDS & GRID
+   ========================================== */
+
+.neu-project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+  width: 100%;
+  
+  /* Scrollable Container Constraints */
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-inset); /* Embedded soft inset container */
+}
+
+/* Custom Neumorphic Scrollbar */
+.neu-project-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.neu-project-grid::-webkit-scrollbar-track {
+  background: var(--neu-bg);
+  border-radius: 10px;
+}
+
+.neu-project-grid::-webkit-scrollbar-thumb {
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  border-radius: 10px;
+}
+
+.neu-project-grid::-webkit-scrollbar-thumb:hover {
+  box-shadow: var(--neu-shadow-hover);
+}
+
+.neu-project-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  padding: 18px;
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out, background-color 0.4s ease;
+}
+
+.neu-project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--neu-shadow-hover);
+}
+
+/* Image Preview Inset Frame */
+.neu-project-image-box {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 16px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-inset);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.neu-project-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.card-back h3 {
-  position: static;
-  border: 2px solid orange;
-  padding: 8px 12px;
-  border-radius: 6px;
-  -webkit-text-stroke: 1px black;
-  -webkit-text-fill-color: orange;
-  font-weight: bold;
-  background-color: rgb(255, 243, 220);
+.neu-project-card:hover .neu-project-img {
+  transform: scale(1.04);
 }
 
-@media (max-width: 500px) {
-  .repo-container {
-    display: block;
-    width: 100%;
-    padding: 10px;
+.neu-no-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--neu-text-muted);
+  font-size: 0.82rem;
+  font-family: 'Fira Code', monospace;
+}
+
+.neu-lang-tag {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+}
+
+/* Card Content Body */
+.neu-project-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.neu-project-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--neu-text-heading);
+  margin: 0 0 8px 0;
+  text-transform: capitalize;
+  transition: color 0.4s ease;
+}
+
+.neu-project-desc {
+  font-size: 0.9rem;
+  color: var(--neu-text-muted);
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.4s ease;
+}
+
+/* Metrics / Stats Pills */
+.neu-project-stats {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.neu-stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 50px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-inset);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--neu-text-heading);
+}
+
+/* Buttons and Links */
+.neu-project-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.neu-btn-sm {
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  border-radius: 12px;
+  flex: 1;
+  justify-content: center;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+  .neu-project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
   }
 
-  .repo-card {
-    width: 100%;
-    height: 250px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.3rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background: #fff;
-    cursor: pointer;
-    margin-bottom: 20px;
+  .neu-project-image-box {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .neu-project-grid {
+    grid-template-columns: 1fr;
   }
 
-  .repo-image {
-    width: 100%;
+  .neu-project-actions {
+    flex-direction: column;
   }
 
-  .card-back h3 {
-    margin-top: 15rem;
+  .neu-btn-sm {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   NEUMORPHIC RATE LIMIT CARD (THEMED)
+   ========================================== */
+
+.neu-rate-limit-card {
+  max-width: 580px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 36px 28px;
+  border-radius: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  box-sizing: border-box;
+}
+
+.neu-rate-limit-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-inset);
+}
+
+.neu-icon-warning {
+  color: #ef4444; /* Standard alert color for both light & dark themes */
+}
+
+.neu-rate-limit-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--neu-text-heading);
+  margin: 0;
+  letter-spacing: -0.01em;
+  transition: color 0.4s ease;
+}
+
+.neu-rate-limit-desc {
+  font-size: 0.925rem;
+  color: var(--neu-text-muted);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 480px;
+  transition: color 0.4s ease;
+}
+
+/* Inset Timer Capsule */
+.neu-timer-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-inset);
+  margin: 8px 0;
+}
+
+.neu-timer-icon {
+  color: var(--accent-cyan, #06b6d4);
+}
+
+.neu-timer-label {
+  font-size: 0.85rem;
+  color: var(--neu-text-muted);
+  font-weight: 600;
+  transition: color 0.4s ease;
+}
+
+.neu-timer-countdown {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--neu-text-heading);
+  letter-spacing: 1px;
+  transition: color 0.4s ease;
+}
+
+/* Button & Actions Layout */
+.neu-rate-limit-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.neu-rate-limit-actions .neu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 12px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  color: var(--neu-text-heading);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.neu-rate-limit-actions .neu-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--neu-shadow-hover);
+}
+
+.neu-rate-limit-actions .neu-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: var(--neu-shadow-inset);
+}
+
+.fetch-btn:hover{
+  color: var(--accent-fetch) !important;
+  box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .neu-rate-limit-card {
+    padding: 24px 18px;
+  }
+
+  .neu-rate-limit-actions {
+    flex-direction: column;
+  }
+
+  .neu-rate-limit-actions .neu-btn {
+    width: 100%;
   }
 }

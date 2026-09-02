@@ -1,168 +1,352 @@
-#Activity {
-  margin-top: 3rem;
-}
+/* ==========================================
+   NEUMORPHIC GITHUB ACTIVITY SECTION
+   ========================================== */
 
-#Activity h2 {
+.neu-activity-section {
+  position: relative;
+  min-height: 100vh;
   width: 100%;
-  text-align: center;
-  padding-bottom: 4rem;
-  color: orange;
-
-}
-
-
-.stat-item img:hover {
-  transform: scale(1.02);
-}
-
-
-
-.followers-container {
-  margin-bottom: 2rem;
-  justify-content: center;
-  text-align: center;
-  background-color: #b65303;
-  color: rgb(255, 255, 255);
-}
-
-.followers-avatars {
+  background-color: var(--neu-bg);
+  color: var(--neu-text);
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px 60px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.neu-activity-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Header Section */
+.neu-activity-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.neu-activity-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--neu-text-heading);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+  transition: color 0.4s ease;
+}
+
+.neu-activity-subtitle {
+  font-size: 1.05rem;
+  color: var(--neu-text-muted);
+  max-width: 650px;
+  margin: 0;
+  transition: color 0.4s ease;
+}
+
+/* Common Card Styling */
+.neu-card {
+  border-radius: 24px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background-color 0.4s ease, box-shadow 0.25s ease;
+}
+
+.neu-card-header {
+  display: flex;
+  align-items: center;
   gap: 10px;
-  display: flex;
-  justify-content: space-around;
 }
 
-.follower-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  transition: transform 0.3s;
-  border: 2px solid #202020;
-  margin-top: 0.5rem;
-}
-
-.follower-avatar:hover {
-  transform: scale(1.1);
-}
-
-
-.stats-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  text-align: center;
-}
-
-.stat-item {
-  flex: 1 1 300px;
-  max-width: 400px;
-}
-
-.stat-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(91, 205, 236, 0.2);
-  transition: transform 0.3s ease;
-
-}
-
-.contribution-graph {
-  flex-basis: 100%;
-  max-width: 800px;
-}
-
-.trophy-section {
-  background-color: #b65303;
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
-  text-align: center;
-  padding-bottom: 3rem;
-}
-
-.trophy {
-  width: 80%;
-  margin-top: 1rem;
-}
-
-.trophy img {
-  margin-top: 1rem;
-}
-
-@media (max-width: 768px) {
-  .stat-item {
-    flex-basis: 100%;
-    max-width: 90%;
-  }
-
-  .contribution-graph {
-    max-width: 90%;
-  }
-
-.trophy-section{
-  max-width: 100%;
-  margin-top: 1rem;
-}
-}
-
-.recent-events {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  border-radius: 10px;
-}
-
-.recent-events h3 {
-  margin-bottom: 1rem;
-  color: #d18800;
-  text-align: center;
-}
-
-.events-list {
-  list-style: none;
-  padding: 0;
+.neu-card-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--neu-text-heading);
   margin: 0;
 }
 
-.event-item {
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
-  background-color: #1e1209;
-  /* deep orange-brown */
-  border-left: 4px solid #ffa500;
-  /* orange */
-  border-radius: 6px;
-  transition: background-color 0.3s;
+/* Icon Colors */
+.neu-icon-amber { color: #f59e0b; }
+.neu-icon-green { color: #10b981; }
+.neu-icon-purple { color: #a855f7; }
+
+/* 1. Followers Section */
+.neu-followers-scroll {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 6px 4px 12px 4px;
 }
 
-.event-item:hover {
-  background-color: #3a2414;
-  /* slightly lighter on hover */
+.neu-followers-scroll::-webkit-scrollbar {
+  height: 6px;
 }
 
-.event-item p {
-  margin: 0.25rem 0;
+.neu-followers-scroll::-webkit-scrollbar-thumb {
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  border-radius: 10px;
 }
 
-.event-item strong {
-  color: #ffffff;
-}
-
-.event-item a {
-  color: #ffae42;
-  /* lighter orange for links */
+.neu-follower-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 10px;
+  border-radius: 50px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
   text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
 }
 
-.event-item a:hover {
+.neu-follower-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--neu-shadow-hover);
+}
+
+.neu-follower-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.neu-follower-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--neu-text-heading);
+}
+
+/* Embed Frames for External Cards */
+.neu-embed-frame {
+  width: 100%;
+  border-radius: 16px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-inset);
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.neu-embed-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+/* 2. Stats Grid */
+.neu-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+/* 4. Awards & Trophies Grid */
+.neu-awards-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  width: 100%;
+}
+
+.neu-badge-box {
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  border-radius: 16px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-inset);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.neu-badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.neu-badge-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+.neu-badge-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--neu-text-heading);
+}
+
+/* 5. Events List */
+.neu-events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.neu-event-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-inset);
+}
+
+.neu-event-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.neu-event-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neu-event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.neu-event-type {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--neu-text-heading);
+}
+
+.neu-event-repo {
+  font-size: 0.78rem;
+  color: var(--accent-cyan);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.neu-event-repo:hover {
   text-decoration: underline;
 }
 
-.event-time {
-  font-size: 0.85rem;
-  color: #d1a36f;
-  /* light orange-brown */
+.neu-event-time {
+  font-size: 0.75rem;
+  color: var(--neu-text-muted);
+  font-family: 'Fira Code', monospace;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 900px) {
+  .neu-awards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .neu-event-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .neu-event-time {
+    align-self: flex-end;
+  }
+}
+
+/* Followers Horizontal Scroll Track */
+.neu-followers-scroll {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 8px 4px 14px 4px;
+}
+
+.neu-followers-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.neu-followers-scroll::-webkit-scrollbar-track {
+  background: var(--neu-bg);
+  border-radius: 10px;
+}
+
+.neu-followers-scroll::-webkit-scrollbar-thumb {
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  border-radius: 10px;
+}
+
+/* Individual Follower Pill Item */
+.neu-follower-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 10px;
+  border-radius: 50px;
+  background: var(--neu-bg);
+  box-shadow: var(--neu-shadow-small);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.neu-follower-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--neu-shadow-hover);
+}
+
+.neu-follower-pill:active {
+  transform: translateY(0);
+  box-shadow: var(--neu-shadow-inset);
+}
+
+.neu-follower-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--neu-shadow-small);
+}
+
+.neu-follower-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--neu-text-heading);
+  white-space: nowrap;
 }
